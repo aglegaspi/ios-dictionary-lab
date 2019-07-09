@@ -3,7 +3,7 @@
 Fork and clone this repo. On your fork, answer and commit the follow questions. When you are finished, submit the link to your repo on Canvas.
 
 
-## Question 1
+## Question 1 √
 
 - Create an instance of a dictionary called `citiesDict` that maps 3 countries to their capital cities.
 
@@ -25,14 +25,14 @@ citiesDict["Cambodia"] = "The Hill of the Lady Penh"
 ```
 
 
-## Question 2
+## Question 2 √
 
 `var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]`
 
 - Using `someDict`, add together the values associated with "Three" and "Five" and print the result.
 ```swift 
 if let num1 = someDict["Three"], let num2 = someDict["Five"] {
-print(num1 + num2)
+    print(num1 + num2)
 }
 ```
 
@@ -54,13 +54,13 @@ var addThis = ["One", "Two", "Three", "Four", "Five", "Six"]
 
 for key in someDict.keys {
 
-for keyToAdd in addThis {
-if key == keyToAdd {
-if let value = someDict[key] {
-sumUpToSix += value
-}
-}
-}
+    for keyToAdd in addThis {
+        if key == keyToAdd {
+            if let value = someDict[key] {
+                sumUpToSix += value
+            }
+        }
+    }
 
 }
 print(sumUpToSix)
@@ -78,13 +78,13 @@ print(someDict)
 - Add 2 to every value inside of `someDict`.
 ```swift 
 for (key,value) in someDict {
-someDict[key] = value + 2
+    someDict[key] = value + 2
 }
 
 print(someDict)
 ```
 
-## Question 3
+## Question 3 √
 
 Create a variable that is explicitly typed as a dictionary that maps strings to floating point numbers. Initialize the variable to the data shown in the table below which lists an author name and their comprehensibility score.
 
@@ -96,16 +96,41 @@ Create a variable that is explicitly typed as a dictionary that maps strings to 
 | C.S. Lewis | 9.9 |
 | Jon Krakauer | 6.1 |
 
+```swift
+var authorScores: [String:Float] = ["Mark Twain": 8.9, "Nathaniel Hawthrone": 5.1 , "John Steinbeck": 2.3, "C.S. Lewis": 6.1, "Jon Krakauer": 6.1]
+```
+
 Using the dictionary created in the previous problem, do the following:
 
 - Print out the floating-point score for “John Steinbeck”.
-
+```swift 
+if let johnSteinbeck = authorScores["John Steinbeck"] {
+print(johnSteinbeck)
+}
+```
 - Add an additional author named “Erik Larson” with an assigned score of 9.2.
-
+```swift
+authorScores["Erik Larson"] = 9.2
+print(authorScores)
+```
 - Write an if/else statement that compares the score of John Krakaur with Mark Twain. Print out the name of the author with the highest score.
+```swift
+if let compareJohn = authorScores["John Steinbeck"], let compareMark = authorScores["Mark Twain"] {
+    
+    if compareJohn > compareMark {
+        print("Highest score goes to John Steinbeck")
+    } else {
+        print("Highest score goes to Mark Twain")
+    }
+}
+```
 
 - Use a for-loop to iterate through the dictionary you created at the beginning of the problem, and print out the content in the form of key: value, one entry per line.
-
+```swift
+for (key, value) in authorScores {
+    print(("\(key) : \(value)"))
+}
+```
 
 ## Question 4
 
