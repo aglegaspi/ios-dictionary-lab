@@ -30,17 +30,59 @@ citiesDict["Cambodia"] = "The Hill of the Lady Penh"
 `var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]`
 
 - Using `someDict`, add together the values associated with "Three" and "Five" and print the result.
+```swift 
+if let num1 = someDict["Three"], let num2 = someDict["Five"] {
+print(num1 + num2)
+}
+```
 
 - Add values to the dictionary for the keys "Six" and "Seven".
-
+```swift 
+someDict["Six"] = 6
+someDict["Seven"] = 7
+```
 - Make a key called `productUpToSeven` and set its value equal to the product of all the values.
+```swift 
+var productOfArray = Array(someDict.values).reduce(1,*)
+someDict["productUpToSeven"] = productOfArray
+```
 
 - Make a key called `sumUpToSix` and set its value equal to the sum of the keys "One", "Two", "Three", "Four", "Five" and "Six".
+```swift 
+var sumUpToSix = 0
+var addThis = ["One", "Two", "Three", "Four", "Five", "Six"]
+
+for key in someDict.keys {
+
+for keyToAdd in addThis {
+if key == keyToAdd {
+if let value = someDict[key] {
+sumUpToSix += value
+}
+}
+}
+
+}
+print(sumUpToSix)
+someDict["sumUpToSix"] = sumUpToSix
+print(someDict)
+```
 
 - Remove the new keys made in the previous two steps
+```swift 
+someDict["sumUpToSix"] = nil
+someDict["productUpToSeven"] = nil
+print(someDict)
+```
 
 - Add 2 to every value inside of `someDict`.
+```swift 
+for (key,value) in someDict {
+someDict[key] = value + 2
+}
 
+print(someDict)
+```
 
 ## Question 3
 
