@@ -132,7 +132,7 @@ for (key, value) in authorScores {
 }
 ```
 
-## Question 4
+## Question 4 √
 
 You are given a dictionary code of type [String:String] which has values for all lowercase letters. The code dictionary represents a way to encode a message. For example if code["a"] = "z" and code["b"] = "x" the encoded version if "ababa" will be "zxzxz". You are also given a message which contains only lowercase letters and spaces. Use the `code` dictionary below to encode the message and print it.
 
@@ -169,9 +169,36 @@ var code = [
 var message = "hello world"
 ```
 
+```swift
+var message = "hello world"
+var messageTheRemix = ""
+
+for letter in message {
+    if let letterRemix = code[String(letter)] {
+
+        messageTheRemix += letterRemix
+    }
+}
+print(messageTheRemix.capitalized)
+```
+
 You are also given an `encodedMessage` which contains only lowercase letters and spaces. Use the `code` dictionary to decode the message and print it.
 `var encodedMessage = "uijt nfttbhf jt ibse up sfbe"`
 
+```swift
+var encodedMessage = "uijt nfttbhf jt ibse up sfbe"
+var encodedMsgRemix = ""
+
+for letter in encodedMessage {
+    
+    for (index,value) in code {
+        if String(letter) == value {
+            encodedMsgRemix += index
+        }
+    }
+}
+print(encodedMsgRemix)
+```
 
 ## Question 5
 
