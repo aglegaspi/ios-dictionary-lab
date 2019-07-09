@@ -255,7 +255,7 @@ print(fullNames)
 
 ```
 
-## Question 6
+## Question 6 √
 
 You are given an array of dictionaries. Each dictionary in the array describes the score of a person. Find the person with the best score and print his full name.
 
@@ -288,8 +288,55 @@ var peopleWithScores: [[String: String]] = [
     ]
 ]
 ```
+```swift
+var score = 0
+var winner = ""
+
+for person in peopleWithScores {
+    
+    for (index, value) in person {
+        
+        if index == "score" {
+            
+            if let value = Int(value) {
+                
+                if score < value {
+                    score = value
+                    if let fname = person["firstName"], let lname = person["lastName"] {
+                            winner = ""
+                            let fullname = "\(fname) \(lname)"
+                            winner.append(fullname)
+                    }
+                }
+            }
+        }
+    }
+}
+
+print("The winner is \(winner) with the highest score of \(score)")
+
+```
 
 Print out the dictionary above in the following format:  **full name - score**
+
+```swift 
+var fullNameAndScore = ""
+
+for person in peopleWithScores {
+    
+    for _ in person {
+        
+        if let fname = person["firstName"], let lname = person["lastName"], let score = person["score"] {
+            fullNameAndScore = ""
+            let nameAndScore = "\(fname) \(lname) - \(score)"
+            fullNameAndScore.append(nameAndScore)
+            
+        }
+        
+    }
+    print(fullNameAndScore)
+}
+```
 
 
 ## Question 7
