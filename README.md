@@ -455,7 +455,7 @@ for state in testStates {
 ```
 
 
-## Question 11
+## Question 11 √
 
 You are given the dictionary `deposits`, which maps a persons name to an array of deposits that have been made to their account.
 
@@ -466,6 +466,7 @@ b) Create an array called `stolenCents`, iterate over deposits for each person a
 c) How much money did you steal?
 
 ```swift
+
 var deposits: [String: [Double]] = [
  "Williams" : [300.65, 270.45, 24.70, 52.00, 99.99],
  "Cooper" : [200.56, 55.00, 600.78, 305.15, 410.76, 35.00],
@@ -473,14 +474,79 @@ var deposits: [String: [Double]] = [
  "Clark" : [555.23, 45.67, 99.95, 80.76, 56.99, 46.50, 265.70],
  "Johnson" : [12.56, 300.00, 640.50, 255.60, 26.88]
 ]
+
+for person in deposits {
+    let totalDeposit = person.value
+    print("\(person.key) deposited \(totalDeposit.reduce(0,+))")
+}
+
+print("")
+//b) Create an array called `stolenCents`, iterate over deposits for each person and steal their cents!
+
+    //Calculate the decimal part of each value,
+    //add it to the `stolenCents` array and
+    //round down the value in the dict.
+
+var stolenCents: [Double] = []
+var totalCents: Double = 0.00
+
+for person in deposits {
+    
+    let totalDeposits = person.value
+    
+    for deposit in totalDeposits {
+        let cents = deposit.truncatingRemainder(dividingBy: 1)
+        totalCents += cents
+    }
+}
+stolenCents.append(totalCents)
+let result = "We stole $\(round(1000 * stolenCents.reduce(0,+))/1000)"
+print(result)
+
 ```
 
 
-## Question 12
+## Question 12 √
 
 Print the second most common letter in the string below:
 
-`var myString = "We're flooding people with information. We need to feed it through a processor. A human must turn information into intelligence or knowledge. We've tended to forget that no computer will ever ask a new question."`
+```swift
+var myString = "We're flooding people with information. We need to feed it through a processor. A human must turn information into intelligence or knowledge. We've tended to forget that no computer will ever ask a new question."
+
+
+var frequency: [String:Int] = [:]
+
+for letter in myString {
+    
+    let letter = String(letter)
+    
+    if frequency[letter] == nil {
+        frequency[letter] = 1
+    }
+    frequency[letter] = (frequency[letter]!) + 1
+}
+
+let keys = frequency.keys.sorted()
+var maxvalue = 0
+var secondmaxcount = 0
+var secondmaxletter = ""
+
+for key in keys {
+    if let value = frequency[key] {
+        
+        if value > maxvalue {
+            maxvalue = value
+            
+        } else if value > secondmaxcount && secondmaxcount < maxvalue {
+            secondmaxcount = value
+            secondmaxletter = key
+        }
+    }
+}
+
+print("The second most used letter is '\(secondmaxletter)' and it was used \(secondmaxcount) times")
+
+```
 
 
 ## Question 13
