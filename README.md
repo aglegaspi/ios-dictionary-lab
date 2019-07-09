@@ -431,13 +431,27 @@ print(dictInts)
 ```
 
 
-## Question 10
+## Question 10 √
 
 Write code that iterates through `testStates` and prints out whether or not that key is in `statePop`.
 
 ```swift
+
 let statePop = ["Alabama": 4.8, "Alaska": 0.7, "Arizona": 6.7, "Arkansas": 3.0]
 let testStates = ["California","Arizona", "Alabama", "New Mexico"]
+
+let statePopKeys = statePop.keys
+
+for state in testStates {
+    
+    if statePopKeys.contains(state) {
+        print("\(state) is a key in statePop.")
+    } else {
+        print("\(state) is NOT a key in statePop.")
+    }
+}
+
+
 ```
 
 
