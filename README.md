@@ -11,6 +11,19 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 - Translate at least 3 of the capital names into another language.
 
+```swift
+
+var citiesDict = ["Argentina":"Buenos Aires", "Belize":"Belmopan", "Cambodia":"Phnom Penh"]
+
+citiesDict["Madagascar"] = "Antananarivo"
+citiesDict["Samoa"] = "Apia"
+
+citiesDict["Argentina"] = "Good Winds"
+citiesDict["Madagascar"] = "The City of Thousand"
+citiesDict["Cambodia"] = "The Hill of the Lady Penh"
+
+```
+
 
 ## Question 2
 
