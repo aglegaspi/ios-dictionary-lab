@@ -200,7 +200,7 @@ for letter in encodedMessage {
 print(encodedMsgRemix)
 ```
 
-## Question 5
+## Question 5 √
 
 You are given an array of dictionaries. Each dictionary in the array contains exactly 2 keys `“firstName”` and `“lastName”`. Create an array of strings called `firstNames` that contains only the values for `“firstName”` from each dictionary.
 
@@ -228,9 +228,32 @@ var people: [[String:String]] = [
     ]
 ]
 ```
+```swift 
+var firstNames: [String] = []
+
+for person in people {
+    if let firstname = person["firstName"] {
+        firstNames.append(firstname)
+    }
+}
+
+print(firstNames)
+```
 
 Now, create an array of strings called `fullNames` that contains the values for `“firstName”` and `“lastName”` from the dictionary separated by a space.
+```swift
+var fullNames: [String] = []
 
+for person in people {
+    if let fname = person["firstName"], let lname = person["firstName"] {
+        let fullname = "\(fname) \(lname)"
+        fullNames.append(fullname)
+    }
+}
+
+print(fullNames)
+
+```
 
 ## Question 6
 
