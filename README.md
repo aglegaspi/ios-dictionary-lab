@@ -339,14 +339,46 @@ for person in peopleWithScores {
 ```
 
 
-## Question 7
+## Question 7 √
 
 `var numbers = [1, 2, 3, 2, 3, 5, 2, 1, 3, 4, 2, 2, 2]`
 
 You are given an array of integers. The frequency of a number is the number of times it appears in the array. Find out the frequency of each one.
 
-Print the numbers in ascending order followed by their frequency.
+```swift 
+var output: [Int:Int] = [:]
+var frequency: [Int:Int] = [:]
+numbers.sort()
 
+var compare = numbers[0]
+var counter = 0
+
+for num in numbers {
+    
+    if num == compare {
+        counter += 1
+        output[num] = counter
+    } else {
+        compare = num
+        counter = 1
+        output[num] = counter
+    }
+}
+```
+
+Print the numbers in ascending order followed by their frequency.
+```swift
+var sortedKeys = Array(output.keys).sorted()
+
+let keys = output.keys.sorted()
+for key in keys {
+    if let value = output[key] {
+        print("(\(key): \(value))")
+    }
+}
+
+}
+```
 
 ## Question 8
 
