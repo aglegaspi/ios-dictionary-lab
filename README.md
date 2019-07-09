@@ -380,12 +380,41 @@ for key in keys {
 }
 ```
 
-## Question 8
+## Question 8 √
 
 Print the most common letter in the string below:
 
 `var myString = "We're flooding people with information. We need to feed it through a processor. A human must turn information into intelligence or knowledge. We've tended to forget that no computer will ever ask a new question."`
 
+```swift 
+
+var frequency: [String:Int] = [:]
+var counter = 0
+
+for letter in myString {
+    
+    let letter = String(letter)
+    
+        if frequency[letter] == nil {
+            frequency[letter] = 1
+        }
+        frequency[letter] = (frequency[letter]!) + 1
+}
+
+let keys = frequency.keys.sorted()
+var maxvalue = 0
+
+for key in keys {
+    if let value = frequency[key] {
+        
+        if value > maxvalue {
+            maxvalue = value
+            print("(\(key): \(value))")
+        }
+        
+    }
+}
+```
 
 ## Question 9
 
