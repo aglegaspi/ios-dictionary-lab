@@ -420,6 +420,16 @@ for key in keys {
 
 Write code that creates a dictionary where the keys are Ints between 0 and 20 inclusive, and each key's value is its cube.
 
+```swift
+var dictInts: [Int:Int] = [:]
+
+for i in 0..<20 {
+    dictInts[i] = i * i * i
+}
+
+print(dictInts)
+```
+
 
 ## Question 10
 
