@@ -170,16 +170,17 @@ var message = "hello world"
 ```
 
 ```swift
-var message = "hello world"
+let message = "hello world"
 var messageTheRemix = ""
 
 for letter in message {
-    if let letterRemix = code[String(letter)] {
+    
+    let letterRemix = code[String(letter)] ?? " "
+    messageTheRemix += letterRemix
 
-        messageTheRemix += letterRemix
-    }
 }
-print(messageTheRemix.capitalized)
+    
+print(messageTheRemix)
 ```
 
 You are also given an `encodedMessage` which contains only lowercase letters and spaces. Use the `code` dictionary to decode the message and print it.
@@ -549,7 +550,7 @@ print("The second most used letter is '\(secondmaxletter)' and it was used \(sec
 ```
 
 
-## Question 13
+## Question 13 √
 
 Given the below 4 arrays of Ints,
 
@@ -562,6 +563,27 @@ let arr1 = [2, 4, 5, 6, 8, 10, 12]
 let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
+let arrays = [arr1, arr2, arr3, arr4]
+
+var noDupes: [Int] = []
+
+for array in arrays {
+    
+    for int in array {
+        
+        if !noDupes.contains(int) {
+            noDupes.append(int)
+        }
+    }
+}
+print(noDupes.sorted())
+
+var uniqueValues: [Int] = []
+
+for int in arr1 where arr2.contains(int) && arr3.contains(int) && arr4.contains(int) {
+    uniqueValues.append(int)
+}
+print(uniqueValues)
 ```
 
 
