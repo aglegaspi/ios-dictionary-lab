@@ -596,6 +596,7 @@ Given the following exert from the Declaration of Independence, find the most fr
  - use `CharacterSet.punctuationCharacters` in union with any other characters you don't want in your array, like spaces and new lines.
 
  ```swift
+ 
 let declarationOfIndependence = """
 When in the Course of human events, it becomes necessary for one people to dissolve the
 political bands which have connected them with another, and to assume among the powers of the
@@ -622,4 +623,23 @@ Britain is a history of repeated injuries and usurpations, all having in direct 
 establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a
 candid world.
 """
+
+var depp = declarationOfIndependence.lowercased().components(separatedBy: CharacterSet([" ", ".", "\n", "'", ","]))
+
+var freqWords5 = [String:Int]()
+
+for word in depp where word.count > 5 {
+
+if let counter = freqWords5[word] {
+    freqWords5[word] = counter + 1
+} else {
+    freqWords5[word] = 1
+}
+
+}
+
+// need to return the longest word
+
+print(freqWords5)
+
 ```
